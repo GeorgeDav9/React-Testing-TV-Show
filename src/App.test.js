@@ -19,5 +19,14 @@ describe("App", () => {
     const strangerThingsText = app.queryByText("Stranger Things");
   });
 
+  it("opens dropdown to select a season", () => {
+    const dropDownMenu = app.queryByText("Select a season");
+    rtl.fireEvent.click(dropDownMenu);
+    expect(dropDownMenu).toBeCalled();
+  });
 
+  it('expect app component to display', async () => {
+    const text = await wrapper.findByText('Select a season');
+    expect(text).toBeInTheDocument()
+})
 });
